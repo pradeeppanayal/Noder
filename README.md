@@ -13,12 +13,16 @@ It is a frame work application for executing multiple python scripts with respec
  * Store 
  
        from noder import Store
-       Store.store("data",34) # Store value 34 with the ref name "data"
+       dataStore = Store()
+       dataStore.store("data",34) # Store value 34 with the ref name "data"
  * Retrive
         
        from noder import Store
-       print Store.retrive("data")
+       dataStore = Store()
+       print dataStore.retrive("data")
  * User can store and retrive any python objects (Not limted to string and numbers)
+ * State of a node/script will be auto saved to the store. You can get it back using the script name as ref name.
+ * Store will be removed once all the node/script are executed.
  
 # Sample configuration
        
