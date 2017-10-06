@@ -1,0 +1,25 @@
+    {
+   
+      "scripts":[
+   	{
+   		"name":"script1",
+   		"preScripts":[]		
+   	},{
+   		"name":"script2",
+   		"preScripts":[]		
+   	},{
+   		"name":"script3",
+   		"preScripts":["script1","script2"]		
+   	},{
+   		"name":"script4",
+   		"preScripts":["script5","script6"]		
+   	},{
+   		"name":"script5",
+   		"preScripts":["script6"]		
+   	},{
+   		"name":"script6",
+   		"preScripts":["script4"]		
+   	}
+      ]
+       
+   }

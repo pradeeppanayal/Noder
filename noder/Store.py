@@ -22,27 +22,28 @@ def read_object(filename):
         return pickle.load(f)
 
 class Store(object):
-   @staticmethod
-   def store(name,obj):
-      key =  sys.argv[len(sys.argv)-1] #get the last arguement it will be the key
-      data = read_object(key)
-      data[name] = obj
-      save_object(data,key)
+   def __init__(self,storename = None):
+      self.storename = storename
+      if storename == None:
+         assert len(sys.argv) > 1,"Argument should contain unique store name"
+         self.storename =  sys.argv[len(sys.argv)-1] #get the last arguement it will be the key  
 
-   @staticmethod
-   def retrive(name):
-      key =  sys.argv[len(sys.argv)-1] #get the last arguement it will be the key
-      data = read_object(key)
+   def store(self,name,obj):
+      data = read_object(self.storename)
+      data[name] = obj
+      save_object(data,self.storename)
+
+   def retrive(self,name):
+      data = read_object(self.storename)
       if name in data:
          return data[name]
       else:
          #raise KeyError
          return None 
 
-   @staticmethod
-   def clear(filename): 
-      if os.path.exists(filename) :
-         os.remove(filename)
+   def clear(self): 
+      if os.path.exists(self.storename) :
+         os.remove(self.storename)
       
 
       

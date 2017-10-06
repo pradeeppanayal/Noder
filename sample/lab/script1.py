@@ -10,5 +10,7 @@ sys.path.append('.')
 
 from noder import Store
 
-Store.store("data",34)
+dataStore = Store()
+dataStore.store("data",34)
+
 print "hai","script 1" 
